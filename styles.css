@@ -57,3 +57,7 @@ footer {
   color: white;
   background-color: black;
 }
+
+.social-media {
+  display: flex;
+}
