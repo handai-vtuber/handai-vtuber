@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://handai-vtuber.github.io/handai-vtuber/sitemap.xml
