@@ -5,39 +5,394 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>阪大Vtuber愛好会</title>
   <meta name="description" content="Modern and minimal template" />
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* 1 */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* 2 */
+    /* Header styling */
+    header {
+      /* Arrangement */
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      /* Property */
+      height: 80px;
+      width: 100%;
+      /* Color */
+      background-color: #333;
+      color: #fff;
+      /* Box */
+      box-sizing: border-box;
+      padding: 15px 20px;
+      /* Control of children elements */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    header a img {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Page content */
+    main {
+      margin-top: 110px;
+      margin-right: 15%;
+      margin-left: 15%;
+      line-height: 1.6;
+    }
+
+    /* Fotter */
+    footer {
+      text-align: center;
+      padding-right: 30%;
+      padding-left: 30%;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      color: white;
+      background-color: black;
+    }
+
+
+    /* 3 */
+    .card {
+      margin-bottom: 5mm;
+      padding: 5%;
+      background-color: #eee;
+      border-radius: 5mm;
+    }
+
+    .social-media {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-media a {
+      color: white;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .social-media a img {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Tab buttons */
+    .tab-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    .tab-button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .tab-button:hover {
+      background-color: #555;
+    }
+
+    .tab-button.inactive {
+      background-color: #666;
+      opacity: 0.7;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s;
+    }
+
+    /* Slideshow */
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+    }
+
+    .slide.active {
+      display: block;
+      animation: fadeIn 0.5s;
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Event items */
+    .event-item {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid #ccc;
+    }
+
+    .event-item:first-child {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: none;
+    }
+
+    .event-item h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .event-images {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .event-images img {
+      width: calc(50% - 5px);
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Landing page introduction */
+    .landing-intro {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .landing-intro p {
+      margin: 0.5em 0;
+    }
+  </style>
 </head>
 <body>
 <header>
   <a href="/" class="title"><h2>阪大Vtuber愛好会</h2></a>
-  <nav class="social-media">
-    <a href="https://x.com/handaiVtuber" >公式X</a>
-    <a href="https://www.youtube.com/channel/UC5NCKCHrdDanw0SfhCCfIeg">公式YouTubeチャンネル</a>
+  <nav>
+    <a href="https://x.com/handaiVtuber" target="_blank" rel="noopener noreferrer"><img src="static/logos/x-logo.svg" alt="X">公式X</a>
+    <a href="https://www.youtube.com/channel/UC5NCKCHrdDanw0SfhCCfIeg" target="_blank" rel="noopener noreferrer"><img src="static/logos/youtube-logo.svg" alt="YouTube">公式YouTubeチャンネル</a>
   </nav>
 </header>
 <main>
-<div>
-  <h2>Vtuber愛好会の活動内容</h2>
-  <p>※現在作成中</p>
-</div>
-<div>
-  <h2>Vtuber愛好会の活動に参加する方法</h2>
-  <div class="card">
-    <p>阪大Vtuber愛好会公式XのDMにて、入部希望の旨を連絡する</p>
+  <div class="tab-buttons">
+    <button class="tab-button" id="btn-landing" onclick="switchTab('landing')">TOP</button>
+    <button class="tab-button" id="btn-activities" onclick="switchTab('activities')">活動内容</button>
+    <button class="tab-button" id="btn-how-to-join" onclick="switchTab('how-to-join')">入部方法</button>
   </div>
-  <div class="card">
-    <p>阪大Vtuber愛好会Discordサーバへの招待リンクが送られてくるので、参加する</p>
+
+  <div id="landing" class="tab-content active">
+    <div class="slideshow-container">
+      <div class="slide active">
+        <img src="static/images/slide1.svg" alt="活動風景 1">
+      </div>
+      <div class="slide">
+        <img src="static/images/slide2.svg" alt="活動風景 2">
+      </div>
+      <div class="slide">
+        <img src="static/images/slide3.svg" alt="活動風景 3">
+      </div>
+      <div class="slide">
+        <img src="static/images/slide4.svg" alt="活動風景 4">
+      </div>
+    </div>
+    <div class="landing-intro">
+      <p>阪大Vtuber愛好会は、大阪大学の学生を中心に、Vtuberや配信文化を楽しむサークルです。</p>
+      <p>私たちは、好きなVtuberの配信を一緒に視聴したり、おすすめのVtuberを紹介し合ったり、Vtuber文化について語り合っています。</p>
+      <p>メンバーは初心者からベテランまで幅広く、みんなでVtuber文化を盛り上げています。</p>
+      <p>定期的にDiscordでの交流会や、オフラインでの集まりも開催しており、同じ趣味を持つ仲間と楽しい時間を過ごせます。</p>
+      <p>推しVtuberについて熱く語ったり、新しいVtuberを発掘したり、イベント情報を共有したりと、Vtuber好きにはたまらない環境です。</p>
+      <p>Vtuberに興味がある方、推しについて語りたい方、同じ趣味の仲間を探している方、どなたでも大歓迎です！</p>
+      <p>初心者の方でも安心して入部できるよう、先輩メンバーが丁寧にサポートします。</p>
+      <p>一緒にVtuber文化を楽しみ、新しい仲間と出会いませんか？</p>
+      <p>興味を持たれた方は、ぜひ公式XのDMまたはDiscordサーバーにお気軽にご連絡ください。</p>
+      <p>皆さんのご入部を心よりお待ちしています！</p>
+    </div>
   </div>
-  <div class="card">
-    <p>Discordにて、「アンケートへの回答」と「自己紹介」をする</p>
+
+  <div id="activities" class="tab-content">
+    <h2>Vtuber愛好会の活動内容</h2>
+
+    <div class="card">
+      <h3>毎週のファンミ</h3>
+      <p>毎週末にオンラインで開催し、皆で同じ配信や切り抜きを一緒に視聴します。</p>
+      <p>レクリエーションや歓談タイムもあり、メンバー同士で楽しく交流できる時間です。</p>
+    </div>
+
+    <div class="card">
+      <h3>Discordでの交流/情報共有</h3>
+      <p>日常的な雑談から配信の感想共有、ライブ・イベント情報の交換、ファンアートの投稿まで、様々な形でVtuber文化を楽しんでいます。</p>
+      <p>いつでも気軽に参加できる、活発なコミュニティです。</p>
+    </div>
+
+    <div class="card">
+      <h3>イベント</h3>
+
+      <div class="event-item">
+        <h4>新歓</h4>
+        <p>新入生向けの歓迎イベントを春に開催しています。</p>
+        <p>気軽に参加できる雰囲気で、Vtuber好きな仲間との出会いの場となっています。</p>
+        <div class="event-images">
+          <img src="static/captures/shinkan1.svg" alt="新歓イベントの様子1">
+          <img src="static/captures/shinkan2.svg" alt="新歓イベントの様子2">
+        </div>
+      </div>
+
+      <div class="event-item">
+        <h4>学祭参加</h4>
+        <p>大阪大学の学園祭に出展し、Vtuber文化の魅力を発信しています。</p>
+        <p>展示やイベント企画を通じて、多くの人とVtuberの楽しさを共有しています。</p>
+        <div class="event-images">
+          <img src="static/captures/gakusai1.svg" alt="学祭参加の様子1">
+          <img src="static/captures/gakusai2.svg" alt="学祭参加の様子2">
+        </div>
+      </div>
+
+      <div class="event-item">
+        <h4>交流会(BBQなど)</h4>
+        <p>定期的にオフラインでの交流会を開催し、BBQなどを楽しみながら親睦を深めています。</p>
+        <p>オンラインとは違った形で、メンバー同士の絆を強める大切な機会です。</p>
+        <div class="event-images">
+          <img src="static/captures/koryukai1.svg" alt="交流会の様子1">
+          <img src="static/captures/koryukai2.svg" alt="交流会の様子2">
+        </div>
+      </div>
+
+      <div class="event-item">
+        <h4>Vtuber関連のライブ/イベント</h4>
+        <p>メンバーで一緒にVtuberのライブやイベントに参加することもあります。</p>
+        <p>推しの現場を仲間と共有できる、特別な体験です。</p>
+        <div class="event-images">
+          <img src="static/captures/live1.svg" alt="ライブイベントの様子1">
+          <img src="static/captures/live2.svg" alt="ライブイベントの様子2">
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div id="how-to-join" class="tab-content">
+    <h2>Vtuber愛好会への入部方法</h2>
+    <div class="card">
+      <p>阪大Vtuber愛好会公式XのDMにて、入部希望の旨を連絡する</p>
+    </div>
+    <div class="card">
+      <p>阪大Vtuber愛好会Discordサーバへの招待リンクが送られてくるので、参加する</p>
+    </div>
+    <div class="card">
+      <p>Discordにて、「アンケートへの回答」と「自己紹介」をする</p>
+    </div>
+  </div>
+
+  <script>
+    let slideInterval;
+
+    function switchTab(tabId) {
+      // すべてのタブコンテンツを非表示にする
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // すべてのボタンからinactiveクラスを削除
+      const buttons = document.querySelectorAll('.tab-button');
+      buttons.forEach(button => {
+        button.classList.remove('inactive');
+      });
+
+      // 選択されたタブコンテンツを表示
+      document.getElementById(tabId).classList.add('active');
+
+      // 選択されていないボタンにinactiveクラスを追加
+      if (tabId === 'landing') {
+        document.getElementById('btn-activities').classList.add('inactive');
+        document.getElementById('btn-how-to-join').classList.add('inactive');
+        startSlideshow();
+      } else if (tabId === 'activities') {
+        document.getElementById('btn-landing').classList.add('inactive');
+        document.getElementById('btn-how-to-join').classList.add('inactive');
+        stopSlideshow();
+      } else if (tabId === 'how-to-join') {
+        document.getElementById('btn-landing').classList.add('inactive');
+        document.getElementById('btn-activities').classList.add('inactive');
+        stopSlideshow();
+      }
+    }
+
+    function startSlideshow() {
+      stopSlideshow(); // 既存のインターバルをクリア
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('.slide');
+
+      slideInterval = setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }, 3000);
+    }
+
+    function stopSlideshow() {
+      if (slideInterval) {
+        clearInterval(slideInterval);
+      }
+    }
+
+    // ページ読み込み時の初期設定
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('btn-activities').classList.add('inactive');
+      document.getElementById('btn-how-to-join').classList.add('inactive');
+      startSlideshow();
+    });
+  </script>
 </main>
 <footer>
-  <nav>
-    <a href="https://x.com/handaiVtuber" class="social-media">公式X</a>
-    <a href="https://www.youtube.com/channel/UC5NCKCHrdDanw0SfhCCfIeg" class="social-media">公式YouTubeチャンネル</a>
+  <nav class="social-media">
+    <a href="https://x.com/handaiVtuber" target="_blank" rel="noopener noreferrer"><img src="static/logos/x-logo.svg" alt="X">公式X</a>
+    <a href="https://www.youtube.com/channel/UC5NCKCHrdDanw0SfhCCfIeg" target="_blank" rel="noopener noreferrer"><img src="static/logos/youtube-logo.svg" alt="YouTube">公式YouTubeチャンネル</a>
   </nav>
-  © <time datetime="2025-08-10">2025</time> 阪大Vtuber愛好会
+  <p>©<time datetime="2025-08-10">2025</time> 阪大Vtuber愛好会</p>
 </footer>
 </body>
 </html>
