@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>阪大Vtuber愛好会</title>
-  <meta name="description" content="Modern and minimal template" />
+  <meta name="description" content="大阪大学を拠点に活動する、Vtuber好きが集うサークルです！" />
   <style>
     /* 1 */
     body {
@@ -49,12 +49,51 @@
       height: 20px;
     }
 
+    header a .link-text {
+      display: inline;
+    }
+
+    @media (max-width: 768px) {
+      header a .link-text {
+        display: none;
+      }
+
+      header a img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
     /* Page content */
     main {
       margin-top: 110px;
       margin-right: 15%;
       margin-left: 15%;
       line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 18px;
+      }
+
+      main {
+        margin-right: 0;
+        margin-left: 0;
+        padding: 0 15px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      h3 {
+        font-size: 24px;
+      }
+
+      h4 {
+        font-size: 20px;
+      }
     }
 
     /* Fotter */
@@ -94,6 +133,21 @@
     .social-media a img {
       width: 20px;
       height: 20px;
+    }
+
+    .social-media a .link-text {
+      display: inline;
+    }
+
+    @media (max-width: 768px) {
+      .social-media a .link-text {
+        display: none;
+      }
+
+      .social-media a img {
+        width: 24px;
+        height: 24px;
+      }
     }
 
     /* Tab buttons */
@@ -195,6 +249,16 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
+    @media (max-width: 768px) {
+      .event-images {
+        flex-direction: column;
+      }
+
+      .event-images img {
+        width: 100%;
+      }
+    }
+
     /* Landing page introduction */
     .landing-intro {
       margin-top: 30px;
@@ -213,8 +277,8 @@
 <header>
   <a href="/" class="title"><h2>阪大Vtuber愛好会</h2></a>
   <nav>
-    <a href="https://x.com/handaiVtuber" target="_blank" rel="noopener noreferrer"><img src="static/logos/x-logo.svg" alt="X">公式X</a>
-    <a href="https://www.youtube.com/channel/UC5NCKCHrdDanw0SfhCCfIeg" target="_blank" rel="noopener noreferrer"><img src="static/logos/youtube-logo.svg" alt="YouTube">公式YouTubeチャンネル</a>
+    <a href="https://x.com/handaiVtuber" target="_blank" rel="noopener noreferrer"><img src="static/logos/x-logo.svg" alt="X"><span class="link-text">公式X</span></a>
+    <a href="https://www.youtube.com/channel/UC5NCKCHrdDanw0SfhCCfIeg" target="_blank" rel="noopener noreferrer"><img src="static/logos/youtube-logo.svg" alt="YouTube"><span class="link-text">公式YouTubeチャンネル</span></a>
   </nav>
 </header>
 <main>
@@ -389,8 +453,8 @@
 </main>
 <footer>
   <nav class="social-media">
-    <a href="https://x.com/handaiVtuber" target="_blank" rel="noopener noreferrer"><img src="static/logos/x-logo.svg" alt="X">公式X</a>
-    <a href="https://www.youtube.com/channel/UC5NCKCHrdDanw0SfhCCfIeg" target="_blank" rel="noopener noreferrer"><img src="static/logos/youtube-logo.svg" alt="YouTube">公式YouTubeチャンネル</a>
+    <a href="https://x.com/handaiVtuber" target="_blank" rel="noopener noreferrer"><img src="static/logos/x-logo.svg" alt="X"><span class="link-text">公式X</span></a>
+    <a href="https://www.youtube.com/channel/UC5NCKCHrdDanw0SfhCCfIeg" target="_blank" rel="noopener noreferrer"><img src="static/logos/youtube-logo.svg" alt="YouTube"><span class="link-text">公式YouTubeチャンネル</span></a>
   </nav>
   <p>©<time datetime="2025-08-10">2025</time> 阪大Vtuber愛好会</p>
 </footer>
