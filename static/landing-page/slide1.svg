@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="790" height="595" viewBox="0 0 790 595">
+  <image width="790" height="595" xlink:href="data:image/webp;base64,EOF
+echo "$BASE64" >> slide1.svg && echo '" />' >> slide1.svg && echo '</svg>' >> slide1.svg
