@@ -257,8 +257,15 @@
 
     .slide img {
       width: 100%;
-      height: auto;
+      height: 450px;
+      object-fit: cover;
       display: block;
+    }
+
+    @media (max-width: 768px) {
+      .slide img {
+        height: 300px;
+      }
     }
 
     @keyframes fadeIn {
@@ -293,7 +300,8 @@
 
     .event-images img {
       width: calc(50% - 5px);
-      height: auto;
+      height: 250px;
+      object-fit: cover;
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
@@ -305,6 +313,7 @@
 
       .event-images img {
         width: 100%;
+        height: 200px;
       }
     }
 
@@ -340,16 +349,16 @@
   <div id="landing" class="tab-content active">
     <div class="slideshow-container">
       <div class="slide active">
-        <img src="static/images/slide1.svg" alt="活動風景 1">
+        <img src="static/landing-page/slide1.jpg" alt="活動風景 1">
       </div>
       <div class="slide">
-        <img src="static/images/slide2.svg" alt="活動風景 2">
+        <img src="static/landing-page/slide2.jpg" alt="活動風景 2">
       </div>
       <div class="slide">
-        <img src="static/images/slide3.svg" alt="活動風景 3">
+        <img src="static/landing-page/slide3.jpg" alt="活動風景 3">
       </div>
       <div class="slide">
-        <img src="static/images/slide4.svg" alt="活動風景 4">
+        <img src="static/landing-page/slide4.jpg" alt="活動風景 4">
       </div>
     </div>
     <div class="landing-intro">
@@ -385,8 +394,8 @@
         <p>新入生向けの歓迎イベントを春に開催しています。</p>
         <p>気軽に参加できる雰囲気で、Vtuber好きな仲間との出会いの場となっています。</p>
         <div class="event-images">
-          <img src="static/captures/shinkan1.svg" alt="新歓イベントの様子1">
-          <img src="static/captures/shinkan2.svg" alt="新歓イベントの様子2">
+          <img src="static/activities/shinkan1.jpg" alt="新歓イベントの様子1">
+          <img src="static/activities/shinkan2.jpg" alt="新歓イベントの様子2">
         </div>
       </div>
 
@@ -395,8 +404,8 @@
         <p>大阪大学の大学祭に出展し、Vtuberの魅力を発信しています。</p>
         <p>展示やイベント企画を通じて、多くの人とVtuberの好きなポイントを共有しています。</p>
         <div class="event-images">
-          <img src="static/captures/gakusai1.svg" alt="学祭参加の様子1">
-          <img src="static/captures/gakusai2.svg" alt="学祭参加の様子2">
+          <img src="static/activities/gakusai1.jpg" alt="学祭参加の様子1">
+          <img src="static/activities/gakusai2.jpg" alt="学祭参加の様子2">
         </div>
       </div>
 
@@ -405,8 +414,8 @@
         <p>定期的にオフラインでの交流会を開催し、BBQなどを楽しみながら親睦を深めています。</p>
         <p>オンラインとは違った形で、メンバー同士の絆を強める良い機会になっています。</p>
         <div class="event-images">
-          <img src="static/captures/koryukai1.svg" alt="交流会の様子1">
-          <img src="static/captures/koryukai2.svg" alt="交流会の様子2">
+          <img src="static/activities/koryukai1.jpg" alt="交流会の様子1">
+          <img src="static/activities/koryukai2.jpg" alt="交流会の様子2">
         </div>
       </div>
 
@@ -415,8 +424,8 @@
         <p>メンバーで一緒にVtuberのライブやイベントに参加することもあります。</p>
         <p>一緒に参戦することで推し活がより充実したものになります！</p>
         <div class="event-images">
-          <img src="static/captures/live1.svg" alt="ライブイベントの様子1">
-          <img src="static/captures/live2.svg" alt="ライブイベントの様子2">
+          <img src="static/activities/live1.jpg" alt="ライブイベントの様子1">
+          <img src="static/activities/live2.svg" alt="ライブイベントの様子2">
         </div>
       </div>
     </div>
