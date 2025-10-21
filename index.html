@@ -75,6 +75,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      /* Animation */
+      transition: transform 0.3s ease-in-out;
+    }
+
+    header.hidden {
+      transform: translateY(-100%);
     }
 
     header a {
@@ -159,8 +165,8 @@
 
     /* 3 */
     .card {
-      margin-bottom: 5mm;
-      padding: 5%;
+      margin-bottom: 15px;
+      padding: 20px;
       background-color: #eee;
       border-radius: 5mm;
     }
@@ -203,8 +209,8 @@
     .tab-buttons {
       display: flex;
       gap: 10px;
-      margin-top: 30px;
-      margin-bottom: 20px;
+      max-width: 800px;
+      margin: 30px auto 20px;
     }
 
     .tab-button {
@@ -233,6 +239,13 @@
     .tab-content.active {
       display: block;
       animation: fadeIn 0.5s;
+    }
+
+    #activities,
+    #how-to-join {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* Slideshow */
@@ -319,7 +332,8 @@
 
     /* Landing page introduction */
     .landing-intro {
-      margin-top: 30px;
+      max-width: 800px;
+      margin: 30px auto 0;
       font-size: 18px;
       font-weight: bold;
       line-height: 1.8;
@@ -424,7 +438,7 @@
         <p>一緒に参戦することで推し活がより充実したものになります！</p>
         <div class="event-images">
           <img src="./static/activities/live1.jpg" alt="ライブイベントの様子1">
-          <img src="./static/activities/live2.svg" alt="ライブイベントの様子2">
+          <img src="./static/activities/live2.jpg" alt="ライブイベントの様子2">
         </div>
       </div>
     </div>
@@ -432,6 +446,7 @@
 
   <div id="how-to-join" class="tab-content">
     <h2>Vtuber愛好会への入部方法</h2>
+    <!-- TODO: 「参加方法が3種類ある」ではなく「一つの参加方法が3ステップに分かれている」ということがわかるUIにする -->
     <div class="card">
       <p>①阪大Vtuber愛好会公式XのDMにて、入部希望の旨を連絡する</p>
     </div>
@@ -487,7 +502,7 @@
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
-      }, 3000);
+      }, 7000);
     }
 
     function stopSlideshow() {
@@ -495,6 +510,24 @@
         clearInterval(slideInterval);
       }
     }
+
+    // ヘッダーの表示/非表示を制御
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop && scrollTop > 80) {
+        // 下にスクロール中で、ヘッダーの高さより下にいる場合
+        header.classList.add('hidden');
+      } else {
+        // 上にスクロール中
+        header.classList.remove('hidden');
+      }
+
+      lastScrollTop = scrollTop;
+    });
 
     // ページ読み込み時の初期設定
     document.addEventListener('DOMContentLoaded', function() {
