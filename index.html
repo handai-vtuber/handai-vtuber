@@ -114,9 +114,10 @@
 
     /* Page content */
     main {
-      margin-top: 110px;
+      margin-top: 160px;
       margin-right: 15%;
       margin-left: 15%;
+      margin-bottom: 100px;
       line-height: 1.6;
     }
 
@@ -142,6 +143,46 @@
       h4 {
         font-size: 20px;
       }
+
+      .after-buttons {
+        padding: 0 15px;
+        margin-bottom: 40px;
+      }
+
+      .after-button {
+        padding: 15px 20px;
+        font-size: 18px;
+      }
+    }
+
+    /* After buttons */
+    .after-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+
+    .after-button {
+      padding: 20px 40px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    .after-button:hover {
+      background-color: #555;
+    }
+
+    .after-button.hidden {
+      display: none;
     }
 
     /* Fotter */
@@ -191,10 +232,11 @@
     .join-step::after {
       content: '↓';
       position: absolute;
-      bottom: -35px;
+      bottom: -45px;
       left: 50%;
       transform: translateX(-50%);
       font-size: 30px;
+      font-weight: bold;
       color: #666;
     }
 
@@ -527,6 +569,12 @@
         button.classList.remove('inactive');
       });
 
+      // すべてのafter-buttonを表示
+      const afterButtons = document.querySelectorAll('.after-button');
+      afterButtons.forEach(button => {
+        button.classList.remove('hidden');
+      });
+
       // 選択されたタブコンテンツを表示
       document.getElementById(tabId).classList.add('active');
 
@@ -534,14 +582,17 @@
       if (tabId === 'landing') {
         document.getElementById('btn-activities').classList.add('inactive');
         document.getElementById('btn-how-to-join').classList.add('inactive');
+        document.getElementById('after-btn-landing').classList.add('hidden');
         startSlideshow();
       } else if (tabId === 'activities') {
         document.getElementById('btn-landing').classList.add('inactive');
         document.getElementById('btn-how-to-join').classList.add('inactive');
+        document.getElementById('after-btn-activities').classList.add('hidden');
         stopSlideshow();
       } else if (tabId === 'how-to-join') {
         document.getElementById('btn-landing').classList.add('inactive');
         document.getElementById('btn-activities').classList.add('inactive');
+        document.getElementById('after-btn-how-to-join').classList.add('hidden');
         stopSlideshow();
       }
     }
@@ -584,12 +635,15 @@
 
     // ページ読み込み時の初期設定
     document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('btn-activities').classList.add('inactive');
-      document.getElementById('btn-how-to-join').classList.add('inactive');
-      startSlideshow();
+      switchTab('landing');
     });
   </script>
 </main>
+<div class="after-buttons">
+  <button class="after-button" id="after-btn-landing" onclick="switchTab('landing')">TOPへ移動する</button>
+  <button class="after-button" id="after-btn-activities" onclick="switchTab('activities')">活動内容を確認する</button>
+  <button class="after-button" id="after-btn-how-to-join" onclick="switchTab('how-to-join')">入部方法を確認する</button>
+</div>
 <footer>
   <nav class="social-media">
     <a href="https://x.com/handaiVtuber" target="_blank" rel="noopener noreferrer"><img src="./static/logos/x-logo.svg" alt="X"><span class="link-text">公式X</span></a>
