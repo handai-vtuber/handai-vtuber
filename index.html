@@ -171,6 +171,65 @@
       border-radius: 5mm;
     }
 
+    /* Timeline design for join steps */
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 20px;
+      bottom: 20px;
+      width: 3px;
+      background-color: #333;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #eee;
+      border-radius: 5mm;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 15px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 23px;
+      width: 16px;
+      height: 16px;
+      background-color: #333;
+      border: 3px solid white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px #333;
+    }
+
+    .timeline-item .step-number {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background-color: #333;
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      display: inline;
+    }
+
     .social-media {
       display: flex;
       justify-content: center;
@@ -446,15 +505,19 @@
 
   <div id="how-to-join" class="tab-content">
     <h2>Vtuber愛好会への入部方法</h2>
-    <!-- TODO: 「参加方法が3種類ある」ではなく「一つの参加方法が3ステップに分かれている」ということがわかるUIにする -->
-    <div class="card">
-      <p>①阪大Vtuber愛好会公式XのDMにて、入部希望の旨を連絡する</p>
-    </div>
-    <div class="card">
-      <p>②阪大Vtuber愛好会Discordサーバへの招待リンクが送られてくるので、参加する</p>
-    </div>
-    <div class="card">
-      <p>③Discordサーバにて、「アンケートへの回答」と「自己紹介」をする</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="step-number">1</span>
+        <p>阪大Vtuber愛好会公式XのDMにて、入部希望の旨を連絡する</p>
+      </div>
+      <div class="timeline-item">
+        <span class="step-number">2</span>
+        <p>阪大Vtuber愛好会Discordサーバへの招待リンクが送られてくるので、参加する</p>
+      </div>
+      <div class="timeline-item">
+        <span class="step-number">3</span>
+        <p>Discordサーバにて、「アンケートへの回答」と「自己紹介」をする</p>
+      </div>
     </div>
   </div>
 
