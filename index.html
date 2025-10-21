@@ -171,6 +171,55 @@
       border-radius: 5mm;
     }
 
+    /* Join steps with arrows */
+    .join-steps {
+      position: relative;
+    }
+
+    .join-step {
+      position: relative;
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: #eee;
+      border-radius: 5mm;
+    }
+
+    .join-step:last-child {
+      margin-bottom: 15px;
+    }
+
+    .join-step::after {
+      content: '↓';
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30px;
+      color: #666;
+    }
+
+    .join-step:last-child::after {
+      display: none;
+    }
+
+    .join-step .step-number {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background-color: #333;
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .join-step p {
+      margin: 0;
+      display: inline;
+    }
+
     .social-media {
       display: flex;
       justify-content: center;
@@ -446,15 +495,19 @@
 
   <div id="how-to-join" class="tab-content">
     <h2>Vtuber愛好会への入部方法</h2>
-    <!-- TODO: 「参加方法が3種類ある」ではなく「一つの参加方法が3ステップに分かれている」ということがわかるUIにする -->
-    <div class="card">
-      <p>①阪大Vtuber愛好会公式XのDMにて、入部希望の旨を連絡する</p>
-    </div>
-    <div class="card">
-      <p>②阪大Vtuber愛好会Discordサーバへの招待リンクが送られてくるので、参加する</p>
-    </div>
-    <div class="card">
-      <p>③Discordサーバにて、「アンケートへの回答」と「自己紹介」をする</p>
+    <div class="join-steps">
+      <div class="join-step">
+        <span class="step-number">1</span>
+        <p>阪大Vtuber愛好会公式XのDMにて、入部希望の旨を連絡する</p>
+      </div>
+      <div class="join-step">
+        <span class="step-number">2</span>
+        <p>阪大Vtuber愛好会Discordサーバへの招待リンクが送られてくるので、参加する</p>
+      </div>
+      <div class="join-step">
+        <span class="step-number">3</span>
+        <p>Discordサーバにて、「アンケートへの回答」と「自己紹介」をする</p>
+      </div>
     </div>
   </div>
 
