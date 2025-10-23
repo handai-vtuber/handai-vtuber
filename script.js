@@ -77,7 +77,25 @@ window.addEventListener('scroll', function() {
   lastScrollTop = scrollTop;
 });
 
+// HTMLコンポーネントをロードする関数
+async function loadComponent(elementId, filePath) {
+  try {
+    const response = await fetch(filePath);
+    const html = await response.text();
+    document.getElementById(elementId).innerHTML = html;
+  } catch (error) {
+    console.error(`Failed to load ${filePath}:`, error);
+  }
+}
+
 // ページ読み込み時の初期設定
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+  // 各コンポーネントをロード
+  await Promise.all([
+    loadComponent('landing', './landing.html'),
+    loadComponent('activities', './activities.html'),
+    loadComponent('how-to-join', './how-to-join.html')
+  ]);
+
   switchTab('landing');
 });
